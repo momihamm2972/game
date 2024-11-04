@@ -1,26 +1,28 @@
 <!doctype html>
-    <head>
-        <title>DIZA</title>
+<html>
+<head>
+    <title>DIZA</title>
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        h1{
+           color: #ffffff;
+           position: relative;
+           /* bottom: 1px; */
+           left: 50%;
+           /* top: 50% */
+           /* up: 50%; */
+           transform: translateX(-50%);
+           margin-top: 20px;
         }
-        #square {
-            /* position: absolute; */
-            /* top: 50%; */
-            /* left: 50%; */
-            width : 250px;
-            height: 250px;
+        .rectangle{
+            height: 1500px;
+            width: 1000px;
             background-color: orange;
+            margin: 100px auto;
         }
-        /* #title{
-            text-align: center;
-        } */
     </style>
-    </head>
+</head>
 <body style="background-color: rgb(0, 0, 0);">
-<h1 style="color: white;">LKMAYA</h1>
-    <div id="square"></div>
+    <h1>LKMAYA</h1>
+    <div class="rectangle"></div>
+</body>
+</html>
