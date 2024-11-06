@@ -14,15 +14,98 @@
            margin-top: 20px;
         }
         .rectangle{
-            height: 1500px;
-            width: 1000px;
+            height: 1200px;
+            width: 900px;
             background-color: orange;
             margin: 100px auto;
         }
+        .topPaddle{
+            height: 40px;
+            width: 300px;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 10%;
+            right: 40%;
+        }
+        .botmPaddle{
+            height: 40px;
+            width: 300px;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 76%;
+            right: 40%;
+        }
+        .horLine{
+            height: 10px;
+            width: 901px;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 44%;
+            right: 21.8%;
+        }
+        .circl{
+            height: 80px;
+            width: 80px;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 42%;
+            right: 47%;
+            border-radius: 40px;
+        }
+        .tiran{
+            height: 300px;
+            width: 300px;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 36%;
+            right: 40%;
+            border-radius: 150px;
+        }
+        .soustiran{
+            height: 280px;
+            width: 280px;
+            background-color: orange;
+            position: fixed;
+            top: 36.6%;
+            right: 40.6%;
+            border-radius: 150px;
+        }
+
     </style>
 </head>
 <body style="background-color: rgb(0, 0, 0);">
     <h1>LKMAYA</h1>
     <div class="rectangle"></div>
+    <div class="topPaddle"></div>
+    <div class="botmPaddle"></div>
+    <div class="tiran"></div>
+    <div class="soustiran"></div>
+    <div class="horLine"></div>
+    <div class="circl"></div>
+    <canvas id="maradona"></canvas>
+    <script>
+        const canvas = document.getElementsByiId('canvas');
+        const context = canvas.getContest('2d');
+        // canvas.width = 900px;
+        function gameLoop()
+        {
+            //select element top paddle here
+            // Select elements with the class 'topPaddle' (returns an HTMLCollection)
+            const topPaddles = document.getElementsByClassName('topPaddle');
+
+            // Access the first element in the collection
+            const topPaddle = topPaddles[0];
+
+            // Now you can manipulate 'topPaddle' as needed
+            topPaddle.style.backgroundColor = 'blue';
+        }
+
+    </script>
 </body>
 </html>
+
+
+
+<!-- <script>
+    const canvas = document.getElementsByClassName('topPaddle');
+</script> -->
