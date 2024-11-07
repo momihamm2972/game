@@ -6,7 +6,7 @@
 /*   By: momihamm <momihamm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:24:22 by momihamm          #+#    #+#             */
-/*   Updated: 2024/11/07 16:17:13 by momihamm         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:37:55 by momihamm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ function gameLoop()
     }
     document.addEventListener('keydown', function(event) {
     // This part waits for the 'keydown' event (when a key is pressed)
-    console.log('rah dkhel');
+    // console.log('rah dkhel');
     const topPaddle = document.getElementById('topPaddle');
     if (topPaddle)
     {
-    const step = 10; // How many pixels to move the paddle
+    const step = 20; // How many pixels to move the paddle
         console.log('Paddle X:', x);
         console.log('Tiran X:', tiranX + 300);
     // Get the current position of the paddle's 'right' value
@@ -55,13 +55,29 @@ function gameLoop()
         // topPaddle.style.right = (currentRight + step) + 'px'; // Increase the 'right' value to move left
         // if (currentRight < window.innerWidth - topPaddle.offsetWidth) {
         if (currentRight + 300 < tiranX + 900) {
-            topPaddle.style.right = (currentRight + step) + 'px'; // Increase 'right' to move left
+            if (currentRight + 300 + step > tiranX + 900)
+            {
+                let rest = (tiranX + 900) - (currentRight + 300);
+                console.log("rest is == ", rest);
+                topPaddle.style.right = (currentRight + rest) + 'px';
+            }
+            else
+                topPaddle.style.right = (currentRight + step) + 'px'; // Increase 'right' to move left
         }
     } else if (event.key === 'd' || event.key === 'D') {
         // If 'D' is pressed, move the paddle right (increasing 'right' value)
         // topPaddle.style.right = (currentRight - step) + 'px'; // Decrease the 'right' value to move right
         if (currentRight > tiranX) {
-            topPaddle.style.right = (currentRight - step) + 'px'; // Decrease 'right' to move right
+            // console.log ("dayza 3ewacher")
+            // if () //ila fayta izid ghir li khaso bash ils9 (paddle 3la area)
+            if (currentRight - step < tiranX)
+            {
+                // console.log("################################################### kayen espace");
+                let rest = tiranX - currentRight;
+                topPaddle.style.right = (currentRight + rest) + 'px';
+            }
+            else
+                topPaddle.style.right = (currentRight - step) + 'px'; // Decrease 'right' to move right
         }
     }
     }
