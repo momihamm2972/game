@@ -6,7 +6,7 @@
 /*   By: momihamm <momihamm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:24:22 by momihamm          #+#    #+#             */
-/*   Updated: 2024/11/07 15:37:17 by momihamm         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:17:13 by momihamm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ function gameLoop()
     const topPaddle = document.getElementById('topPaddle');
     // const ball = document.getElementById('circl');
     const rect = topPaddle.getBoundingClientRect();
+    const hododTiran = rectangle.getBoundingClientRect();
+    const tiranX = hododTiran.x;
     // let leftMove = parseInt(topPaddle.style.left) || 30;
     // leftMove += 1;
     // topPaddle.style.left = leftMove + '%';
@@ -28,7 +30,8 @@ function gameLoop()
     const y = rect.top;  // Y coordinate
     if (topPaddle) {
         topPaddle.style.backgroundColor = 'blue'; // Example: Change the background color
-        console.log('Paddle X:', x);
+        // console.log('Paddle X:', x);
+        // console.log('Tiran X:', tiranX);
         // console.log('Paddle Y:', y);
     } else {
         console.error("Element with ID 'topPaddle' not found.");
@@ -40,7 +43,8 @@ function gameLoop()
     if (topPaddle)
     {
     const step = 10; // How many pixels to move the paddle
-    
+        console.log('Paddle X:', x);
+        console.log('Tiran X:', tiranX + 300);
     // Get the current position of the paddle's 'right' value
     let currentRight = parseInt(window.getComputedStyle(topPaddle).right, 10);
     console.log('Right X:', currentRight);
@@ -49,13 +53,14 @@ function gameLoop()
     if (event.key === 'a' || event.key === 'A') {
         // If 'A' is pressed, move the paddle left (decreasing 'right' value)
         // topPaddle.style.right = (currentRight + step) + 'px'; // Increase the 'right' value to move left
-        if (currentRight < window.innerWidth - topPaddle.offsetWidth) {
+        // if (currentRight < window.innerWidth - topPaddle.offsetWidth) {
+        if (currentRight + 300 < tiranX + 900) {
             topPaddle.style.right = (currentRight + step) + 'px'; // Increase 'right' to move left
         }
     } else if (event.key === 'd' || event.key === 'D') {
         // If 'D' is pressed, move the paddle right (increasing 'right' value)
         // topPaddle.style.right = (currentRight - step) + 'px'; // Decrease the 'right' value to move right
-        if (currentRight > 0) {
+        if (currentRight > tiranX) {
             topPaddle.style.right = (currentRight - step) + 'px'; // Decrease 'right' to move right
         }
     }
