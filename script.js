@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   script.js                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: momihamm <momihamm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 14:24:22 by momihamm          #+#    #+#             */
+/*   Updated: 2024/11/07 15:37:17 by momihamm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+const canvas = document.getElementById('maradona');
+const context = canvas.getContext('2d');
+// canvas.width = 900px;
+function gameLoop()
+{
+    // window.requestAnimationFrame(gameLoop);
+    //select element top paddle here
+    // Select elements with the class 'topPaddle' (returns an HTMLCollection)
+    const topPaddle = document.getElementById('topPaddle');
+    // const ball = document.getElementById('circl');
+    const rect = topPaddle.getBoundingClientRect();
+    // let leftMove = parseInt(topPaddle.style.left) || 30;
+    // leftMove += 1;
+    // topPaddle.style.left = leftMove + '%';
+    const x = rect.x; // X coordinate
+    const y = rect.top;  // Y coordinate
+    if (topPaddle) {
+        topPaddle.style.backgroundColor = 'blue'; // Example: Change the background color
+        console.log('Paddle X:', x);
+        // console.log('Paddle Y:', y);
+    } else {
+        console.error("Element with ID 'topPaddle' not found.");
+    }
+    document.addEventListener('keydown', function(event) {
+    // This part waits for the 'keydown' event (when a key is pressed)
+    console.log('rah dkhel');
+    const topPaddle = document.getElementById('topPaddle');
+    if (topPaddle)
+    {
+    const step = 10; // How many pixels to move the paddle
+    
+    // Get the current position of the paddle's 'right' value
+    let currentRight = parseInt(window.getComputedStyle(topPaddle).right, 10);
+    console.log('Right X:', currentRight);
+    
+    // Check which key was pressed
+    if (event.key === 'a' || event.key === 'A') {
+        // If 'A' is pressed, move the paddle left (decreasing 'right' value)
+        // topPaddle.style.right = (currentRight + step) + 'px'; // Increase the 'right' value to move left
+        if (currentRight < window.innerWidth - topPaddle.offsetWidth) {
+            topPaddle.style.right = (currentRight + step) + 'px'; // Increase 'right' to move left
+        }
+    } else if (event.key === 'd' || event.key === 'D') {
+        // If 'D' is pressed, move the paddle right (increasing 'right' value)
+        // topPaddle.style.right = (currentRight - step) + 'px'; // Decrease the 'right' value to move right
+        if (currentRight > 0) {
+            topPaddle.style.right = (currentRight - step) + 'px'; // Decrease 'right' to move right
+        }
+    }
+    }
+    else
+        console.log("kmi")
+    });
+
+    // if (ball){
+
+    // }
+    // else{
+    //     console.error("Element with ID 'topPaddle' not found.");
+    // }
+    // requestAnimationFrame(gameLoop);
+}
+gameLoop();

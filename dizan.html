@@ -58,16 +58,16 @@
             background-color: rgb(0, 0, 0);
             position: fixed;
             top: 36%;
-            right: 40%;
+            right: 40.1%;
             border-radius: 150px;
         }
         #soustiran{
             height: 280px;
             width: 280px;
-            background-color: orange;
+            background-color: rgb(213, 13, 80);
             position: fixed;
             top: 36.6%;
-            right: 40.6%;
+            right: 40.7%;
             border-radius: 150px;
         }
 
@@ -83,42 +83,7 @@
     <div id="horLine"></div>
     <div id="circl"></div>
     <canvas id="maradona"></canvas>
-    <script>
-        const canvas = document.getElementById('maradona');
-        const context = canvas.getContext('2d');
-        // canvas.width = 900px;
-        function gameLoop()
-        {
-            window.requestAnimationFrame(gameLoop);
-            //select element top paddle here
-            // Select elements with the class 'topPaddle' (returns an HTMLCollection)
-            const topPaddle = document.getElementById('topPaddle');
-            // const ball = document.getElementById('circl');
-            const rect = topPaddle.getBoundingClientRect();
-            let leftMove = parseInt(topPaddle.style.left) || 30;
-            leftMove += 1;
-            topPaddle.style.left = leftMove + '%';
-            const x = rect.left; // X coordinate
-            const y = rect.top;  // Y coordinate
-            if (topPaddle) {
-                topPaddle.style.backgroundColor = 'blue'; // Example: Change the background color
-                console.log('Paddle X:', x);
-                console.log('Paddle Y:', y);
-            } else {
-                console.error("Element with ID 'topPaddle' not found.");
-            }
-
-            // if (ball){
-
-            // }
-            // else{
-            //     console.error("Element with ID 'topPaddle' not found.");
-            // }
-            // requestAnimationFrame(gameLoop);
-        }
-        gameLoop();
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
