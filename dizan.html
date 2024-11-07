@@ -95,7 +95,9 @@
             const topPaddle = document.getElementById('topPaddle');
             // const ball = document.getElementById('circl');
             const rect = topPaddle.getBoundingClientRect();
-            
+            let leftMove = parseInt(topPaddle.style.left) || 30;
+            leftMove += 1;
+            topPaddle.style.left = leftMove + '%';
             const x = rect.left; // X coordinate
             const y = rect.top;  // Y coordinate
             if (topPaddle) {
@@ -105,12 +107,14 @@
             } else {
                 console.error("Element with ID 'topPaddle' not found.");
             }
+
             // if (ball){
 
             // }
             // else{
             //     console.error("Element with ID 'topPaddle' not found.");
             // }
+            // requestAnimationFrame(gameLoop);
         }
         gameLoop();
 
